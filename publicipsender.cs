@@ -18,12 +18,12 @@ namespace publicipsender
         private static void Main(string[] args)
         {
             var publicIpList = new List<string> {"0"};
-            var timer = new Timer(e => { Externalip(publicIpList); }, null, TimeSpan.Zero,
+            var timer = new Timer(e => { GetExternalip(publicIpList); }, null, TimeSpan.Zero,
                 TimeSpan.FromSeconds(30));
             Console.ReadLine();
         }
 
-        private static void Externalip(IList<string> publicIpList)
+        private static void GetExternalip(IList<string> publicIpList)
         {
             var externalip = new WebClient().DownloadString("http://bot.whatismyipaddress.com");
             var lastpublicip = publicIpList[publicIpList.Count - 1];
